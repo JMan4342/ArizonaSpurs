@@ -27,6 +27,7 @@
 - When the user clicks on a significant event on the history timeline, then a brief description and corresponding photo appears.
 - When click on the shop link, then the user is taken to a page showing the various items available to purchase from the organization.
 - When in the shop and click on a specific item, then a more detailed page of that item will appear.
+- When viewed on different screen sizes, then the view is rendered to accomodate the different sizes.
 
 
 ## Deployment
