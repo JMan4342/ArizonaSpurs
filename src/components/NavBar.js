@@ -35,14 +35,14 @@ function NavBar({ currentPage, handlePageChange }) {
           </li>
           <li className="nav-item link">
             <a
-              href="#shop"
-              onClick={() => handlePageChange("Shop")}
+              href="#merchandise"
+              onClick={() => handlePageChange("Merchandise")}
               // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
               className={
-                currentPage === "Shop" ? "nav-link active" : "nav-link"
+                currentPage === "Merchandise" ? "nav-link active" : "nav-link"
               }
             >
-              Shop
+              Merchandise
             </a>
           </li>
         </ul>

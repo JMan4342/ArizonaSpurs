@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import NavBar from "./NavBar";
 import History from "./pages/History";
 import Home from "./pages/Home";
-import Shop from "./pages/Shop";
+import Merchandise from "./pages/Merchandise";
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -15,7 +15,7 @@ export default function PortfolioContainer() {
     if (currentPage === "History") {
       return <History />;
     }
-    return <Shop />;
+    return <Merchandise />;
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
