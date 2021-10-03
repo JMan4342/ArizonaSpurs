@@ -1,108 +1,78 @@
 import React from "react";
 
-// var Twit = require('twit');
-require('dotenv').config();
+// const Twit = require('twit');
+// const Twitter = require('twitter');
+// require('dotenv').config();
+// console.log('Application started');
 
-const apikey = process.env.apikey
-const apiSecretKey = process.env.apikeysecret
-const accessToken = process.env.accesstoken
-const tokenSecret = process.env.accesstokensecret
-const bearerToken = process.env.bearertoken
+// const consumer_key = process.env.consumer_key
+// const consumer_secret = process.env.consumer_secret
+// const access_token = process.env.access_token
+// const access_token_secret = process.env.access_token_secret
+// const bearer_token = process.env.bearer_token
 
 // var T = new Twit({
-//   consumer_key: apikey,
-//   consumer_secret: apiSecretKey,
-//   access_token: accessToken,
-//   access_token_secret: tokenSecret,
+//   consumer_key: consumer_key,
+//   consumer_secret: consumer_secret,
+//   access_token: access_token,
+//   access_token_secret: access_token_secret,
 // })
 
-// (async () => {
-//   T.stream('user', [])
-//   stream.on('tweet', function (tweet) {
+// var stream = T.stream('statuses/filter', {track: '#TOTAVL'});
 
-//   })
+// stream.on('tweet', function (tweet){
+//   console.log(tweet);
 // })
 
-const needle = require('needle');
+window.twttr = (function (d, s, id) {
+  var js,
+    fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
 
-const userId = "1443699793499353107";
-const url = `https://api.twitter.com/2/users/${userId}/tweets?expansions=author_id`;
+  t._e = [];
+  t.ready = function (f) {
+    t._e.push(f);
+  };
 
-const getUserTweets = async () => {
-  let userTweets = [];
-
-  const options = {
-      headers: {
-          "User-Agent": "v2UserTweetsJS",
-          "authorization": `Bearer ${bearerToken}`
-      }
-  }
-
-  let hasNextPage = true;
-  let nextToken = null;
-  let userName;
-  console.log("Retrieving Tweets...");
-
-  while (hasNextPage) {
-      let resp = await getPage(options, nextToken);
-      if (resp && resp.meta && resp.meta.result_count && resp.meta.result_count > 0) {
-          userName = resp.includes.users[0].username;
-          if (resp.data) {
-              userTweets.push.apply(userTweets, resp.data);
-          }
-          if (resp.meta.next_token) {
-              nextToken = resp.meta.next_token;
-          } else {
-              hasNextPage = false;
-          }
-      } else {
-          hasNextPage = false;
-      }
-  }
-
-  console.dir(userTweets, {
-      depth: null
-  });
-  console.log(`Got ${userTweets.length} Tweets from ${userName} (user ID ${userId})!`);
-
-}
-
-const getPage = async (params, options, nextToken) => {
-  if (nextToken) {
-      params.pagination_token = nextToken;
-  }
-
-  try {
-      const resp = await needle('get', url, params, options);
-
-      if (resp.statusCode !== 200) {
-          console.log(`${resp.statusCode} ${resp.statusMessage}:\n${resp.body}`);
-          return;
-      }
-      return resp.body;
-  } catch (err) {
-      throw new Error(`Request failed: ${err}`);
-  }
-}
-
-getUserTweets();
+  return t;
+})(document, "script", "twitter-wjs");
 
 function Home(props) {
   return (
     <div className="home">
-        <div>
-          <h2 className="m-3">Home</h2>
-        </div>
-        <div>
-          <p>The official supporter club for Tottenham Hotspurs in Arizona.</p>
-          <p>We get together for every Spurs match to cheer on our Lilywhites and hate Arsenal.</p>
-        </div>
-        <div>
-
-        </div>
+      <div>
+        <h2 className="m-3">Home</h2>
       </div>
-    );
-  }
-  
-  export default Home;
-  
+      <div>
+        <p>The official supporter club for Tottenham Hotspurs in Arizona.</p>
+        <p>
+          We get together for every Spurs match to cheer on our Lilywhites and
+          hate Arsenal.
+        </p>
+      </div>
+      <div>
+        <a
+          className="twitter-timeline"
+          data-width="400"
+          data-height="600"
+          data-theme="dark"
+          href="https://twitter.com/ArizonaSpurs?ref_src=twsrc%5Etfw"
+        >
+          Tweets by ArizonaSpurs
+        </a>{" "}
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charSet="utf-8"
+        ></script>{" "}
+      </div>
+    </div>
+  );
+}
+
+export default Home;
