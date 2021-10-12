@@ -61,7 +61,7 @@ function Home(props) {
           data-width="400"
           data-height="600"
           data-theme="dark"
-          href="https://twitter.com/ArizonaSpurs?ref_src=twsrc%5Etfw"
+          href="https://twitter.com/JoeyM_Developer?ref_src=twsrc%5Etfw"
         >
           Tweets by ArizonaSpurs
         </a>{" "}
