@@ -6,7 +6,7 @@ function myMoveLeft() {
   var elem = document.getElementById("timeDotLeft");   
   var pos = 0;
   clearInterval(id);
-  id = setInterval(frame, 10);
+  id = setInterval(frame, 3);
   function frame() {
     if (pos === -200) {
       clearInterval(id);
@@ -22,7 +22,7 @@ function myMoveRight() {
   var elem = document.getElementById("timeDotRight");   
   var pos = 0;
   clearInterval(id);
-  id = setInterval(frame, 10);
+  id = setInterval(frame, 3);
   function frame() {
     if (pos === 200) {
       clearInterval(id);
@@ -31,8 +31,24 @@ function myMoveRight() {
       // elem.style.top = pos + 'px'; 
       elem.style.left = pos + 'px'; 
     }
-  }
+  } 
 }
+
+// function returnLeft() {
+//   var elem = document.getElementById("timeDotRight");   
+//   var pos = 200;
+//   clearInterval(id);
+//   id = setInterval(frame, 5);
+//   function frame() {
+//     if (pos === 0) {
+//       clearInterval(id);
+//     } else {
+//       pos--; 
+//       // elem.style.top = pos + 'px'; 
+//       elem.style.left = pos + 'px'; 
+//     }
+//   } 
+// }
 
 
 function History(props) {
