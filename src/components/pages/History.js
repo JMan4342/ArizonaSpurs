@@ -3,36 +3,37 @@ import styles from "../../styleSheets/styleHistory.module.css";
 
 var id = null;
 function myMoveLeft() {
-  var elem = document.getElementById("timeDotLeft");   
+  var elem = document.getElementById("timeDotLeft");
   var pos = 0;
   clearInterval(id);
-  id = setInterval(frame, 3);
+  id = setInterval(frame, 2);
   function frame() {
     if (pos === -200) {
       clearInterval(id);
     } else {
-      pos--; 
-      // elem.style.top = pos + 'px'; 
-      elem.style.left = pos + 'px'; 
+      pos--;
+      elem.style.left = pos + "px";
     }
   }
+  var histCont = document.querySelector("#histCont");
+  histCont.classList.remove("hidden");
+  histCont.classList.add("reveal");
 }
 
-function myMoveRight() {
-  var elem = document.getElementById("timeDotRight");   
-  var pos = 0;
-  clearInterval(id);
-  id = setInterval(frame, 3);
-  function frame() {
-    if (pos === 200) {
-      clearInterval(id);
-    } else {
-      pos++; 
-      // elem.style.top = pos + 'px'; 
-      elem.style.left = pos + 'px'; 
-    }
-  } 
-}
+// function myMoveRight() {
+//   var elem = document.getElementById("timeDotRight");   
+//   var pos = 0;
+//   clearInterval(id);
+//   id = setInterval(frame, 3);
+//   function frame() {
+//     if (pos === 200) {
+//       clearInterval(id);
+//     } else {
+//       pos++; 
+//       elem.style.left = pos + 'px'; 
+//     }
+//   } 
+// }
 
 // function returnLeft() {
 //   var elem = document.getElementById("timeDotRight");   
