@@ -20,20 +20,20 @@ function myMoveLeft() {
   histCont.classList.add("reveal");
 }
 
-// function myMoveRight() {
-//   var elem = document.getElementById("timeDotRight");   
-//   var pos = 0;
-//   clearInterval(id);
-//   id = setInterval(frame, 3);
-//   function frame() {
-//     if (pos === 200) {
-//       clearInterval(id);
-//     } else {
-//       pos++; 
-//       elem.style.left = pos + 'px'; 
-//     }
-//   } 
-// }
+function myMoveRight() {
+  var elem = document.getElementById("timeDotRight");   
+  var pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 3);
+  function frame() {
+    if (pos === 200) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.left = pos + 'px'; 
+    }
+  } 
+}
 
 // function returnLeft() {
 //   var elem = document.getElementById("timeDotRight");   
