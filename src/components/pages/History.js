@@ -61,7 +61,7 @@ function History(props) {
       <div className={styles.timeline}>
         <div className={styles.left} >
           <div className={styles.container} id="timeDotLeft" onClick={myMoveLeft}></div>
-          <div className={styles.content}>
+          <div className={styles.hidden} id="histCont">
             <h2>August 16, 2014</h2>
             <p>First watch party as the Arizona Spurs</p>
           </div>
