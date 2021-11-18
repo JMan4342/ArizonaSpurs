@@ -15,9 +15,18 @@ function myMoveLeft() {
       elem.style.left = pos + "px";
     }
   }
-  var histCont = document.querySelector("#histCont");
-  histCont.classList.remove("hidden");
-  histCont.classList.add("reveal");
+  var histCont = document.getElementById("histCont");
+  // histCont.classNameList.remove("hidden");
+  // histCont.classNameList.add("reveal");
+  if (histCont !== null) {
+    if (id) { 
+        histCont.classList.add("reveal");
+        id = false;
+    } else {
+        histCont.classList.remove("hidden");
+        id = true;
+    }
+}
 }
 
 function myMoveRight() {
