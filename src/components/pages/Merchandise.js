@@ -7,6 +7,14 @@ function Shop(props) {
         <h2 className="m-3">Shop</h2>
       </div>
       <div>
+        <p>
+          Purchase one of kind Arizona Spurs merchandise while supplies last.
+          Contact us at{" "}
+          <a href="mailto:arizonaspurs@gmail.com">arizonaspurs@gmail.com</a> to
+          make a purchase. We currently only accept payment through PayPal.
+        </p>
+      </div>
+      <div>
         <img src="https://via.placeholder.com/150" alt=""></img>
         <h3>Scarves</h3>
         <p>
