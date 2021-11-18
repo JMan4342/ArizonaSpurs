@@ -16,6 +16,23 @@ function Shop(props) {
           those Arizona summers.
         </p>
       </div>
+      <div>
+        <img src="https://via.placeholder.com/150" alt=""></img>
+        <h3>T-Shirts</h3>
+        <p>
+          Short sleeve t-shirt featuring the Arizona Spurs logo on the front,
+          and the club slogan printed on the back. T-shirts are printed on super
+          soft 60% cotton 40% polyester blend material.
+        </p>
+      </div>
+      <div>
+        <img src="https://via.placeholder.com/150" alt=""></img>
+        <h3>Ornaments</h3>
+        <p>
+          Make your holiday complete with an Arizona Spurs ornament featuring
+          our classic logo.
+        </p>
+      </div>
     </div>
   );
 }
