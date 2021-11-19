@@ -45,6 +45,18 @@ function NavBar({ currentPage, handlePageChange }) {
               Merchandise
             </a>
           </li>
+          <li className="nav-item link">
+            <a
+              href="#member"
+              onClick={() => handlePageChange("Member")}
+              // Check to see if the currentPage is `Blog`, and if so we use the active link class from bootstrap. Otherwise, we set it to a normal nav-link
+              className={
+                currentPage === "Member" ? "nav-link active" : "nav-link"
+              }
+            >
+              Members
+            </a>
+          </li>
         </ul>
       </div>
     </div>
