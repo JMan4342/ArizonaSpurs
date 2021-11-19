@@ -3,6 +3,8 @@ import NavBar from "./NavBar";
 import History from "./pages/History";
 import Home from "./pages/Home";
 import Merchandise from "./pages/Merchandise";
+import Member from "./pages/Member";
+
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -15,7 +17,11 @@ export default function PortfolioContainer() {
     if (currentPage === "History") {
       return <History />;
     }
-    return <Merchandise />;
+    if (currentPage === "Merchandise"){
+
+      return <Merchandise />;
+    }
+    return <Member />;
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
