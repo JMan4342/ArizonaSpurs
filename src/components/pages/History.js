@@ -2,56 +2,55 @@ import React, { useState } from "react";
 import styles from "../../styleSheets/styleHistory.module.css";
 
 export default function History(props) {
-
-
-const [isActive, setActive] = useState("false");
-const handleToggle = () => {
-  setActive(!isActive);
-};
-
-var id = null;
-function myMoveLeft() {
-  var elem = document.getElementById("timeDotLeft");
-  var pos = 0;
-  clearInterval(id);
-  id = setInterval(frame, 2);
-  function frame() {
-    if (pos === -200) {
-      clearInterval(id);
-    } else {
-      pos--;
-      elem.style.left = pos + "px";
+  const [isActive, setActive] = useState(false);
+  // const handleToggle = () => {
+  // };
+  
+  var id = null;
+  function myMoveLeft() {
+    isActive ? setActive(false) : setActive(true);
+    console.log(isActive);
+    var elem = document.getElementById("timeDotLeft");
+    var pos = 0;
+    clearInterval(id);
+    id = setInterval(frame, 2);
+    function frame() {
+      if (pos === -200) {
+        clearInterval(id);
+      } else {
+        pos--;
+        elem.style.left = pos + "px";
+      }
     }
+
+    //   var histCont = document.getElementById("histCont");
+    //   // histCont.classNameList.remove("hidden");
+    //   // histCont.classNameList.add("reveal");
+    //   if (histCont !== null) {
+    //     if (id) {
+    //         histCont.classList.add("reveal");
+    //         id = false;
+    //     } else {
+    //         histCont.classList.remove("hidden");
+    //         id = true;
+    //     }
+    // }
   }
 
-  //   var histCont = document.getElementById("histCont");
-  //   // histCont.classNameList.remove("hidden");
-  //   // histCont.classNameList.add("reveal");
-  //   if (histCont !== null) {
-  //     if (id) {
-  //         histCont.classList.add("reveal");
-  //         id = false;
-  //     } else {
-  //         histCont.classList.remove("hidden");
-  //         id = true;
-  //     }
-  // }
-}
-
-function myMoveRight() {
-  var elem = document.getElementById("timeDotRight");
-  var pos = 0;
-  clearInterval(id);
-  id = setInterval(frame, 3);
-  function frame() {
-    if (pos === 200) {
-      clearInterval(id);
-    } else {
-      pos++;
-      elem.style.left = pos + "px";
+  function myMoveRight() {
+    var elem = document.getElementById("timeDotRight");
+    var pos = 0;
+    clearInterval(id);
+    id = setInterval(frame, 3);
+    function frame() {
+      if (pos === 200) {
+        clearInterval(id);
+      } else {
+        pos++;
+        elem.style.left = pos + "px";
+      }
     }
   }
-}
 
   return (
     <div className="history">
@@ -65,13 +64,14 @@ function myMoveRight() {
             id="timeDotLeft"
             onClick={myMoveLeft}
           ></div>
-          <div
-            className={isActive ? "hidden" : "reveal"}
-            id="histCont"
-            onClick={handleToggle}
-          >
-            <h2>August 16, 2014</h2>
-            <p>First watch party as the Arizona Spurs</p>
+          <div className={isActive ? styles.reveal : styles.hidden }>
+            <div
+              id="histCont"
+              // onClick={handleToggle}
+            >
+              <h2>August 16, 2014</h2>
+              <p>First watch party as the Arizona Spurs</p>
+            </div>
           </div>
         </div>
         <div className={styles.timeline}>
