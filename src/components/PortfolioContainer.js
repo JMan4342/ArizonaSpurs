@@ -5,11 +5,17 @@ import History from "./pages/History";
 import Home from "./pages/Home";
 import Merchandise from "./pages/Merchandise";
 import Member from "./pages/Member";
+import Login from "./Login/Login";
 // import Dashboard from "./Dashboard/Dashboard";
 // import Preferences from "./Preferences/Preferences";
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState("Home");
+  const [token, setToken] = useState();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
 
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
   const renderPage = () => {
