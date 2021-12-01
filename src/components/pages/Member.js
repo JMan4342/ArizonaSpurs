@@ -1,6 +1,6 @@
 import React from "react";
 
-function Member(props) {
+export default function Member(props) {
   return (
     <div className="shop">
       <div>
@@ -27,5 +27,3 @@ function Member(props) {
     </div>
   );
 }
-
-export default Member;

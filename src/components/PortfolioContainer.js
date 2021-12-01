@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+// import { BrowserRouter, Route, Switch } from "react-router-dom";
 import NavBar from "./NavBar";
 import History from "./pages/History";
 import Home from "./pages/Home";
 import Merchandise from "./pages/Merchandise";
 import Member from "./pages/Member";
-
+// import Dashboard from "./Dashboard/Dashboard";
+// import Preferences from "./Preferences/Preferences";
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -17,11 +19,17 @@ export default function PortfolioContainer() {
     if (currentPage === "History") {
       return <History />;
     }
-    if (currentPage === "Merchandise"){
-
+    if (currentPage === "Merchandise") {
       return <Merchandise />;
     }
     return <Member />;
+    // <BrowserRouter>
+    //   <Switch>
+    //     <Route path="/member">
+    //       <Member />;
+    //     </Route>
+    //   </Switch>
+    // </BrowserRouter>;
   };
 
   const handlePageChange = (page) => setCurrentPage(page);

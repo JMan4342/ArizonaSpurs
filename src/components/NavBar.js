@@ -1,6 +1,6 @@
 import React from "react";
 
-function NavBar({ currentPage, handlePageChange }) {
+export default function NavBar({ currentPage, handlePageChange }) {
   return (
     <div className="navbar navbar-default">
       <div className="container-fluid">
@@ -63,4 +63,3 @@ function NavBar({ currentPage, handlePageChange }) {
   );
 }
 
-export default NavBar;

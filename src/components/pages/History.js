@@ -7,7 +7,6 @@ export default function History(props) {
   const [rightActive1, setRightActive1] = useState(false);
   const [rightActive2, setRightActive2] = useState(false);
 
-
   var id = null;
   function myMoveLeft() {
     leftActive1 ? setLeftActive1(false) : setLeftActive1(true);
@@ -43,7 +42,6 @@ export default function History(props) {
     }
   }
 
-
   function myMoveRight() {
     rightActive1 ? setRightActive1(false) : setRightActive1(true);
     var elem = document.getElementById("timeDotRight");
@@ -76,7 +74,6 @@ export default function History(props) {
     }
   }
 
-
   return (
     <div className="history">
       <div>
@@ -90,62 +87,56 @@ export default function History(props) {
             onClick={myMoveLeft}
           ></div>
           <div className={leftActive1 ? styles.reveal : styles.hidden}>
-            <div
-              id="histCont"
-            >
+            <div id="histCont">
               <h2>August 16, 2014</h2>
               <p>First watch party as the Arizona Spurs</p>
             </div>
           </div>
         </div>
-        <div className={styles.timeline}>
-          <div className={styles.right}>
-            <div
-              className={styles.container}
-              id="timeDotRight"
-              onClick={myMoveRight}
-            ></div>
-            <div className={rightActive1 ? styles.reveal : styles.hidden}>
-              <div id="histCont">
-                <h2>August 13, 2016</h2>
-                <p>First watch party at our current home, Fibber Magees</p>
-              </div>
+        {/* <div className={styles.timeline}> */}
+        <div className={styles.right}>
+          <div
+            className={styles.container}
+            id="timeDotRight"
+            onClick={myMoveRight}
+          ></div>
+          <div className={rightActive1 ? styles.reveal : styles.hidden}>
+            <div id="histCont">
+              <h2>August 13, 2016</h2>
+              <p>First watch party at our current home, Fibber Magees</p>
             </div>
           </div>
         </div>
-        <div className={styles.timeline}>
-          <div className={styles.left}>
-            <div
-              className={styles.container}
-              id="timeDotLeft2"
-              onClick={myMoveLeft2}
-            ></div>
-            <div className={leftActive2 ? styles.reveal : styles.hidden}>
-              <div
-                id="histCont"
-              >
-                <h2>August xx, 2018</h2>
-                <p>First watch party of season</p>
-              </div>
+        {/* </div> */}
+        {/* <div className={styles.timeline}> */}
+        <div className={styles.left}>
+          <div
+            className={styles.container}
+            id="timeDotLeft2"
+            onClick={myMoveLeft2}
+          ></div>
+          <div className={leftActive2 ? styles.reveal : styles.hidden}>
+            <div id="histCont">
+              <h2>August xx, 2018</h2>
+              <p>First watch party of season</p>
             </div>
           </div>
         </div>
-        <div className={styles.timeline}>
-          <div className={styles.right}>
-            <div
-              className={styles.container}
-              id="timeDotRight2"
-              onClick={myMoveRight2}
-            ></div>
-            <div className={rightActive2 ? styles.reveal : styles.hidden}>
-              <div id="histCont">
-                <h2>August xx, 2018</h2>
-                <p>First watch party of the season</p>
-              </div>
+        {/* </div> */}
+        {/* <div className={styles.timeline}> */}
+        <div className={styles.right}>
+          <div
+            className={styles.container}
+            id="timeDotRight2"
+            onClick={myMoveRight2}
+          ></div>
+          <div className={rightActive2 ? styles.reveal : styles.hidden}>
+            <div id="histCont">
+              <h2>August xx, 2018</h2>
+              <p>First watch party of the season</p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

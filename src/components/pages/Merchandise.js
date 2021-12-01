@@ -1,6 +1,6 @@
 import React from "react";
 
-function Shop(props) {
+export default function Shop(props) {
   return (
     <div className="shop">
       <div>
@@ -44,5 +44,3 @@ function Shop(props) {
     </div>
   );
 }
-
-export default Shop;
