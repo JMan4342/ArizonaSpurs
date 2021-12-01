@@ -6,17 +6,26 @@ import Home from "./pages/Home";
 import Merchandise from "./pages/Merchandise";
 import Member from "./pages/Member";
 import Login from "./Login/Login";
+import useToken from "./useToken";
 // import Dashboard from "./Dashboard/Dashboard";
 // import Preferences from "./Preferences/Preferences";
 
+// function setToken(userToken) {
+//   sessionStorage.setItem('token', JSON.stringify(userToken));
+// }
+
+// function getToken() {
+//   const tokenString = sessionStorage.getItem('token');
+//   const userToken = JSON.parse(tokenString);
+//   return userToken?.token
+// }
+
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState("Home");
-  const [token, setToken] = useState();
+  // const [token, setToken] = useState();
+  const { token, setToken } = useToken();
 
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
-
+  
   // This method is checking to see what the value of `currentPage` is. Depending on the value of currentPage, we return the corresponding component to render.
   const renderPage = () => {
     if (currentPage === "Home") {
@@ -28,6 +37,9 @@ export default function PortfolioContainer() {
     if (currentPage === "Merchandise") {
       return <Merchandise />;
     }
+    if(!token) {
+      return <Login setToken={setToken} />
+    } 
     return <Member />;
     // <BrowserRouter>
     //   <Switch>
