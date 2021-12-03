@@ -1,11 +1,17 @@
 import React from "react";
 
 export default function Member(props) {
+
+  const handleLogout = () => {
+    props.history.push('/login');
+  }
+
   return (
     <div className="shop">
       <div>
         <h2 className="m-3">Member Dashboard</h2>
       </div>
+      <input type="button" onClick={handleLogout} value="Logout" />
       <div>
         <p>
           The Arizona Spurs member page will feature member only benefits that
