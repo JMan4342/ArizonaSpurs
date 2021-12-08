@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes, NavLink } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  NavLink,
+//   Navigate,
+} from "react-router-dom";
 // import NavBar from "./NavBar";
 import History from "./pages/History";
 import Home from "./pages/Home";
@@ -9,7 +15,7 @@ import Login from "./Login/Login";
 // import useToken from "./useToken";
 // import Dashboard from "./Dashboard/Dashboard";
 // import Preferences from "./Preferences/Preferences";
-// import PrivateRoute from "../Utils/PrivateRoute";
+import PrivateRoute from "../Utils/PrivateRoute";
 // import PublicRoute from "../Utils/PublicRoute";
 import { getToken, removeUserSession, setUserSession } from "../Utils/Common";
 import axios from "axios";
@@ -88,7 +94,7 @@ export default function PageContainer() {
   }, []);
 
   if (authLoading && getToken()) {
-      return <div className="content">Checking Authentication...</div>
+    return <div className="content">Checking Authentication...</div>;
   }
 
   return (
@@ -96,33 +102,59 @@ export default function PageContainer() {
       <BrowserRouter>
         <div>
           <div>
-            <NavLink exact activeClassName="active" to="/">
+            <NavLink
+              exact
+              activeClassName="active"
+              to="/"
+              style={{ padding: 5 }}
+            >
               Home
             </NavLink>
-            <NavLink activeClassName="active" to="/history">
+            <NavLink
+              activeClassName="active"
+              to="/history"
+              style={{ padding: 5 }}
+            >
               History
             </NavLink>
-            <small>(Access without token only)</small>
-            <NavLink activeClassName="active" to="/merchandise">
+            <NavLink
+              activeClassName="active"
+              to="/merchandise"
+              style={{ padding: 5 }}
+            >
               Merchandise
             </NavLink>
-            <small>(Access without token only)</small>
-            <NavLink activeClassName="active" to="/login">
+            {/* <NavLink
+              activeClassName="active"
+              to="/login"
+              style={{ padding: 5 }}
+            >
               Login
-            </NavLink>
-            <small>(Access without token only)</small>
-            <NavLink activeClassName="active" to="/member">
+            </NavLink> */}
+            <NavLink
+              activeClassName="active"
+              to="/member"
+              style={{ padding: 5 }}
+            >
               Member
             </NavLink>
-            <small>(Access with token only)</small>
+            {/* <NavLink activeClassName="active" to="/private">
+              Member
+            </NavLink> */}
           </div>
           <div>
             <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/history" element={<History />} />
-              <Route path="/merchandise" element={<Merchandise />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/member" element={<Member />} />
+              <Route exact path="/" element={<Home />}></Route>
+              <Route path="/history" element={<History />}></Route>
+              <Route path="/merchandise" element={<Merchandise />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/member" element={
+                  <PrivateRoute>
+                      <Member />
+                  </PrivateRoute>
+              }>
+                  {/* <Route path="/" element={<PrivateRoute />} /> */}
+              </Route>
             </Routes>
           </div>
         </div>

@@ -1,5 +1,8 @@
 import React from "react";
-import { getUser, removeUserSession } from "../../Utils/Common";
+import { 
+  getUser, 
+  removeUserSession 
+} from "../../Utils/Common";
 
 export default function Member(props) {
   const user = getUser();
@@ -15,7 +18,7 @@ export default function Member(props) {
       <div>
         <h2 className="m-3">Member Dashboard</h2>
       </div>
-      <h3>Welcome {user.name}!</h3>
+      <h3>Welcome {user}!</h3>
       <input type="button" onClick={handleLogout} value="Logout" />
       <div>
         <p>
