@@ -1,16 +1,23 @@
-import React from 'react';
-import { Route, Navigate, useLocation } from 'react-router-dom';
-import { getToken } from './Common';
+import React from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { getToken } from "./Common";
 
 // handle the private routes
 function PrivateRoute({ component: Component, ...rest }) {
-    let location = useLocation()
-    return (
-        <Route 
+  return (
+    <Routes>
+      <Route
         {...rest}
-        render={(props) => getToken() ? <Component {...props} /> : <Navigate to="/login" state={{ from: location }} replace/>}
-        />
-    )
+        render={(props) =>
+          getToken() ? (
+            <Component {...props} />
+          ) : (
+            <Navigate to="/login" state={{ from: props.location }} />
+          )
+        }
+      />
+    </Routes>
+  );
 }
 
 export default PrivateRoute;

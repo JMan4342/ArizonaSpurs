@@ -4,7 +4,7 @@ import {
   Route,
   Routes,
   NavLink,
-//   Navigate,
+  //   Navigate,
 } from "react-router-dom";
 // import NavBar from "./NavBar";
 import History from "./pages/History";
@@ -15,10 +15,11 @@ import Login from "./Login/Login";
 // import useToken from "./useToken";
 // import Dashboard from "./Dashboard/Dashboard";
 // import Preferences from "./Preferences/Preferences";
-import PrivateRoute from "../Utils/PrivateRoute";
+// import PrivateRoute from "../Utils/PrivateRoute";
 // import PublicRoute from "../Utils/PublicRoute";
 import { getToken, removeUserSession, setUserSession } from "../Utils/Common";
 import axios from "axios";
+import PrivateRoute from "../Utils/PrivateRoute";
 
 // function setToken(userToken) {
 //   sessionStorage.setItem('token', JSON.stringify(userToken));
@@ -144,16 +145,12 @@ export default function PageContainer() {
           </div>
           <div>
             <Routes>
-              <Route exact path="/" element={<Home />}></Route>
-              <Route path="/history" element={<History />}></Route>
-              <Route path="/merchandise" element={<Merchandise />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/member" element={
-                  <PrivateRoute>
-                      <Member />
-                  </PrivateRoute>
-              }>
-                  {/* <Route path="/" element={<PrivateRoute />} /> */}
+              <Route exact path="/" element={<Home />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/merchandise" element={<Merchandise />} />
+              <Route path="/member" element={<Member />}>
+                <Route path="login" element={<Login />} />
+                {/* <Route path="private" element={<PrivateRoute />} /> */}
               </Route>
             </Routes>
           </div>
